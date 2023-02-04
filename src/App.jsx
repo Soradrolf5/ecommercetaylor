@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import ItemListContainer from './components/ItemListContainer'
+import ItemListContainer from '../containers/ItemListContainer'
 import NavBar from './components/NavBar'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
   return (
    
-      <div>
+      <div className='Background'>
        <NavBar/>
        <ItemListContainer greeting = "Bienvenido a mi ecommerce"/>
     </div>

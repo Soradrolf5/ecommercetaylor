@@ -19,7 +19,8 @@ import {
 } from '@chakra-ui/react'
 function NavBar() {
   return (
-    <nav><div>
+    <nav>
+    <div>
       <Breadcrumb>
   <BreadcrumbItem>
     <BreadcrumbLink href='#'>DearSwiftie</BreadcrumbLink>
@@ -42,9 +43,6 @@ function NavBar() {
     <BreadcrumbLink ><CartWidget/></BreadcrumbLink>
   </BreadcrumbItem>
 </Breadcrumb>
-      <h1></h1>
-      
-      
     </div>
     </nav>
   )
