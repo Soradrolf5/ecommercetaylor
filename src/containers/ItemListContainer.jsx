@@ -21,8 +21,7 @@ const ItemListContainer = ({greeting}) => {
     useEffect(() => {
       async function fetchData() {
         const response = await getDatos();
-        const data = await response.json;
-        setProduct(data);
+        setProduct(response);
       }
       fetchData();
     }, []);
@@ -30,7 +29,7 @@ const ItemListContainer = ({greeting}) => {
   return (
     <>
     <div>
-    <ItemList product={product}/>
+    <ItemList  product={product}/>
     </div>
       <h1>{greeting}</h1>
     </>

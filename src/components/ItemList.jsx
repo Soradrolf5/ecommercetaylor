@@ -3,13 +3,14 @@ import React from 'react'
 const ItemList = ({product}) => {
     return (
         <>
-        <div>
             {product?.map((prod)=>(
+                <div key={prod.id}>
                 <h1>{prod.nombre}</h1>
+                <h3>{prod.precio}</h3>
+                </div>
             ))
 
             }
-        </div>
         </>
     )
         
