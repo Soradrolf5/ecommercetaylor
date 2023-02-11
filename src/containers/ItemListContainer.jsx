@@ -1,5 +1,5 @@
 import React from 'react'
-import data from '../data.json'
+import Data from '../data.json'
 import ItemList from '../components/ItemList'
 import { useEffect, useState } from 'react'
 const ItemListContainer = ({greeting}) => {
@@ -7,12 +7,12 @@ const ItemListContainer = ({greeting}) => {
   
   const getDatos= () => {
     return new Promise((resolve,reject) => {
-        if(data.length ===0){
+        if(Data.length ===0){
             reject(new Error("no hay datos para mostrar"))
         }
  
     setTimeout (()=>{
-        resolve(data)
+        resolve(Data)
     }, 2000)
    })
   }
