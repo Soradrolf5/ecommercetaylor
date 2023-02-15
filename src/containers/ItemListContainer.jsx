@@ -1,8 +1,10 @@
 import React from 'react'
+import {useParams} from 'react-router-dom'
 import Data from '../data.json'
 import ItemList from '../components/ItemList'
 import { useEffect, useState } from 'react'
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+    const {categoryid} = useParams();
     const [product, setProduct] = useState([]);
   
   const getDatos= () => {
@@ -26,12 +28,12 @@ const ItemListContainer = ({greeting}) => {
       fetchData();
     }, []);
 
+  const prodFilter = Data.filter((prod)=> prod.category === categoryid)
   return (
     <>
     <div>
-    <ItemList  product={product}/>
+    {categoryid ? <ItemList  product={prodFilter}/> : <ItemList product={Data}/>}
     </div>
-      <h1>{greeting}</h1>
     </>
   )
 }

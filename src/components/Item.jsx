@@ -1,29 +1,34 @@
 import React from 'react'
-import product from '../containers/ItemListContainer'
 import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, ButtonGroup, Button, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
-const Item = ({id, nombre, precio}) => {
+const Item = ({id, name, price, category}) => {
   return (
     <div key={id}>
         <Card maxW='sm'>
     <CardBody>
       <Stack mt='6' spacing='3'>
-        <Heading size='md'>{nombre}</Heading>
+        <Heading size='md'>{name}</Heading>
         <Text color='blue.600' fontSize='2xl'>
-          {precio}
+          {price}
+        </Text>
+        <Text color='blue.600' fontSize='2xl'>
+          {category}
         </Text>
       </Stack>
     </CardBody>
     <Divider />
     <CardFooter>
-      <ButtonGroup spacing='2'>
+
+         <Link to={`/item/${id}`}>
+        <ButtonGroup spacing='2'>
         <Button variant='solid' colorScheme='blue'>
-          Buy now
-        </Button>
-        <Button variant='ghost' colorScheme='blue'>
-          Add to cart
-        </Button>
-      </ButtonGroup>
+         Detalles
+         </Button>
+         </ButtonGroup>
+         </Link>
+        
+      
     </CardFooter>
   </Card>
   </div>

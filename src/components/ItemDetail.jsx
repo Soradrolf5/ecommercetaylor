@@ -1,8 +1,10 @@
 import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Divider, ButtonGroup, Button, Text } from '@chakra-ui/react'
-
+import ItemCount from './ItemCount'
+import {useParams} from "react-router-dom"
 import React from 'react'
 
 const ItemDetail = ({product}) => {
+  const {id} = useParams();
     const filter = product.filter((prod) => prod.id === id)
   return (
     <>
@@ -16,12 +18,12 @@ const ItemDetail = ({product}) => {
       borderRadius='lg'
     />
     <Stack mt='6' spacing='3'>
-      <Heading size='md'>{prod.nombre}</Heading>
+      <Heading size='md'>{prod.name}</Heading>
       <Text>
-      {prod.texto}
+      {prod.description}
       </Text>
       <Text color='blue.600' fontSize='2xl'>
-        {prod.precio}
+        {prod.price}
       </Text>
       <Text color='blue.600' fontSize='2xl'>
         {prod.stock}
@@ -30,12 +32,10 @@ const ItemDetail = ({product}) => {
   </CardBody>
   <Divider />
   <CardFooter>
+    <ItemCount stock={prod.stock}/>
     <ButtonGroup spacing='2'>
       <Button variant='solid' colorScheme='blue'>
         Buy now
-      </Button>
-      <Button variant='ghost' colorScheme='blue'>
-        Add to cart
       </Button>
     </ButtonGroup>
   </CardFooter>

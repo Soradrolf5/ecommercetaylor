@@ -1,8 +1,13 @@
 import ItemDetail from '../components/ItemDetail'
 import Data from '../data.json'
 import React from 'react'
+import { useEffect, useState } from 'react'
+import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
+  const [product, setProduct] = useState([]);
+  const {id} = useParams();
+  
     const getDatos= () => {
         return new Promise((resolve,reject) => {
             if(Data.length ===0){
@@ -10,7 +15,8 @@ const ItemDetailContainer = () => {
             }
      
         setTimeout (()=>{
-            resolve(Data)
+          const filter = Data.filter((prod) => prod.id === id)
+            resolve(filter)
         }, 2000)
        })
       }
@@ -24,7 +30,7 @@ const ItemDetailContainer = () => {
           fetchData();
         }, []);
   return (
-    <ItemDetail product={product}/>
+    <ItemDetail product={Data}/>
   )
 }
 

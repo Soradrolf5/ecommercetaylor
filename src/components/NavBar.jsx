@@ -1,5 +1,6 @@
 import React from 'react'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom'
 import {
   Menu,
   MenuButton,
@@ -23,24 +24,29 @@ function NavBar() {
     <div>
       <Breadcrumb>
   <BreadcrumbItem>
-    <BreadcrumbLink href='#'>DearSwiftie</BreadcrumbLink>
+      <Link to={"/"}>DearSwiftie</Link>
   </BreadcrumbItem>
-
+  <BreadcrumbItem >
+  <Link to={"/catalogue"}>Catalogo</Link>
+  </BreadcrumbItem>
   <BreadcrumbItem>
     <BreadcrumbLink><Menu>
   <MenuButton>Productos</MenuButton>
   <Portal>
     <MenuList>
-      <MenuItem>Perfumes</MenuItem>
-      <MenuItem>CD</MenuItem>
-      <MenuItem>Remeras</MenuItem>
+    <Link to={`/category/${"perfume"}`}><MenuItem>Perfumes</MenuItem></Link>
+      
+      <Link to={`/category/${"cd"}`}>      <MenuItem>CD</MenuItem></Link>
+
+      <Link to={`/category/${"remera"}`}>      <MenuItem>Remeras</MenuItem></Link>
+
     </MenuList>
   </Portal>
 </Menu></BreadcrumbLink>
   </BreadcrumbItem>
 
   <BreadcrumbItem isCurrentPage>
-    <BreadcrumbLink ><CartWidget/></BreadcrumbLink>
+  <Link to={"/cart"}><CartWidget/></Link>
   </BreadcrumbItem>
 </Breadcrumb>
     </div>
