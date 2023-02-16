@@ -22,7 +22,6 @@ const Cart = () => {
 <Button
             mt={4}
             colorScheme='teal'
-            isLoading={props.isSubmitting}
             type='submit'
           >
             Submit

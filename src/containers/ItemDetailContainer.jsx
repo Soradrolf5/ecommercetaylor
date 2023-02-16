@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState();
   const {id} = useParams();
   
     const getDatos= () => {
@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
             }
      
         setTimeout (()=>{
-          const filter = Data.filter((prod) => prod.id === id)
+          const filter = Data.find((prod) => prod.id === parseInt(id))
             resolve(filter)
         }, 2000)
        })
@@ -30,7 +30,10 @@ const ItemDetailContainer = () => {
           fetchData();
         }, []);
   return (
-    <ItemDetail product={Data}/>
+    <>
+    {product && <ItemDetail product={product}/>}
+    </>
+    
   )
 }
 

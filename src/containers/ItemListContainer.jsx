@@ -32,7 +32,7 @@ const ItemListContainer = () => {
   return (
     <>
     <div>
-    {categoryid ? <ItemList  product={prodFilter}/> : <ItemList product={Data}/>}
+    {categoryid ? <ItemList product={prodFilter}/> : <ItemList product={Data}/>}
     </div>
     </>
   )

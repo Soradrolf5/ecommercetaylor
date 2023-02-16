@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Text, ButtonGroup, IconButton, Tooltip, Center,} from "@chakra-ui/react";
+import {Text, ButtonGroup, IconButton, Tooltip, Center, Button} from "@chakra-ui/react";
 import React from 'react'
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 const ItemCount = ({stock}) => {
