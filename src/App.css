@@ -6,7 +6,7 @@
 }
 
 .Background {
-  background-image: url(../img/954dab8bac7101d759587ad933bf61fe.jpg);
+  background-image: url(../src/assets/fondo.jpg);
   background-size: auto;
     padding: 150px 30px;
 }
@@ -28,4 +28,9 @@ div h1 {
         text-align: center;
         color: coral;
        
+}
+
+.proDetalle{
+  margin: 0px 20px;
+  padding: 10px 30px ;
 }

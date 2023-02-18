@@ -16,11 +16,11 @@ const ItemCount = ({stock}) => {
       <ButtonGroup  spacing='6'>
       {counter < 1 ? (<Tooltip label="minimum stock reached" placement="bottom">
             <IconButton icon={<MinusIcon />} isDisabled />
-          </Tooltip>): (<Button onClick={restar} colorScheme='blue'>-</Button>)}
+          </Tooltip>): (<Button onClick={restar} colorScheme='teal'>-</Button>)}
        <Center w="50px" h="30px">
        <Text as="b">{counter}</Text>
        </Center>
-      {counter < stock ? (<Button onClick={sumar} colorScheme='blue'>+</Button>): (<Tooltip label="stock limit reached" placement="bottom">
+      {counter < stock ? (<Button onClick={sumar} colorScheme='teal'>+</Button>): (<Tooltip label="stock limit reached" placement="bottom">
             <IconButton icon={<AddIcon />} isDisabled />
           </Tooltip>)} 
   
