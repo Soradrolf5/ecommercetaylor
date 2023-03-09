@@ -1,33 +1,62 @@
-import React from 'react'
 import {
   FormControl,
   FormLabel,
-  Button,
-  FormHelperText,
   Input,
-} from '@chakra-ui/react'
+  FormHelperText,
+  Button,
+  Container,
+  Box,
+  Textarea,
+  Center,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text,
+} from "@chakra-ui/react";
+import { useState, useContext } from "react";
+import { CartContext } from "../contexts/ShoppingCartContext";
+import SendOrder from "./SendOrder";
 
 const Cart = () => {
-  return (
-    <div>
-      <FormControl isRequired>
-  <FormLabel>First name</FormLabel>
-  <Input placeholder='First name' />
-</FormControl>
-<FormControl>
-  <FormLabel>Email address</FormLabel>
-  <Input type='email' />
-  <FormHelperText>We'll never share your email.</FormHelperText>
-</FormControl>
-<Button
-            mt={4}
-            colorScheme='teal'
-            type='submit'
-          >
-            Submit
-          </Button>
-    </div>
-  )
-}
+  const [cart, setCart] = useContext(CartContext);
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
-export default Cart
+  return (
+    <>
+      <Center bg="#D6EAF8" h="100px" color="black">
+        <Heading as="h2" size="2xl">
+          Cart
+        </Heading>
+      </Center>
+      {cart.map((item) => {
+        return (
+          <Container key={item.id} className="main-catalogue">
+            <Card maxW="sm">
+              <CardHeader>
+                <Heading size="md">{item.name}</Heading>
+              </CardHeader>
+              <CardBody>
+                <Text as="b">Quantity: {item.quantity}</Text>
+                <Text>Price: U$D {item.price}</Text>
+              </CardBody>
+              <CardFooter>
+                <Button
+                  colorScheme="red"
+                  onClick={() => console.log("Eliminando")}
+                >
+                  Delete from cart
+                </Button>
+              </CardFooter>
+            </Card>
+          </Container>
+        );
+      })}
+      <SendOrder />
+    </>
+  );
+};
+
+export default Cart;

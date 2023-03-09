@@ -5,10 +5,12 @@ import NavBar from './components/NavBar'
 import ItemDetailContainer from './containers/ItemDetailContainer'
 import Cart from './components/Cart'
 import Welcome from './components/Welcome'
+import {ShoppingCartProvider}  from './contexts/ShoppingCartContext'
 function App() {
   
 
   return (
+    <ShoppingCartProvider>
    <BrowserRouter>
       <div className='Background'>
        <NavBar/>
@@ -21,6 +23,7 @@ function App() {
     </Routes>
     </div>
     </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 
