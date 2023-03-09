@@ -6,28 +6,10 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 import React from 'react'
 
 const ItemDetail = ({product}) => {
-  const { id } = useParams();
 
-  const [product, setProduct] = useState([]);
-  useEffect(() => {
-    const db = getFirestore();
 
-    const productRef = doc(db, "productos", `${id}`);
-
-    getDoc(productRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        setProduct(snapshot.data());
-      } else {
-        console.log("No such document!");
-      }
-    });
-  }, []);
-
-  const prodFilter = product.filter((prod) => prod.id == id);
   return (
     <>
-     {prodFilter.map((prod) => (
-      <div key={prod.id}>
             <Card maxW='sm' className='proDetalle'>
   <CardBody >
     <Stack mt='6' spacing='3'>
@@ -50,8 +32,6 @@ const ItemDetail = ({product}) => {
     </ButtonGroup>
   </CardFooter>
 </Card>
- </div>
- ))}
     </>
   )
 }
