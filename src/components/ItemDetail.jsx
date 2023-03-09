@@ -26,7 +26,7 @@ const ItemDetail = ({product}) => {
   const prodFilter = product.filter((prod) => prod.id == id);
   return (
     <>
-     {bikeFilter.map((prod) => (
+     {prodFilter.map((prod) => (
       <div key={prod.id}>
             <Card maxW='sm' className='proDetalle'>
   <CardBody >
