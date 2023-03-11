@@ -1,6 +1,0 @@
-[ {"category":"perfume", "id":1, "name": "Wonderstruck", "price": 5000, "stock": 10, "description":"hola", "img": 1 },
-{"category":"perfume", "id":2, "name": "Wonderstruck Enchanted", "price": 6000, "stock": 10, "description":"hola", "img": 2  },
-{"category":"perfume","id":3, "name": "Taylor", "price": 7000, "stock": 10, "description":"hola","img": 3},
-{"category":"cd","id":4, "name": "Midnights", "price": 5500, "stock": 10, "description":"hola", "img": 4 },
-{"category":"remera","id":5, "name": "Dear Swiftie", "price": 10000, "stock": 10, "description":"hola", "img": 5 }
-]

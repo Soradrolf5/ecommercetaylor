@@ -2,32 +2,52 @@ import React from 'react'
 import {useParams} from 'react-router-dom'
 import ItemList from '../components/ItemList'
 import { useEffect, useState } from 'react'
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-const ItemListContainer = () => {
-    const {categoryid} = useParams();
-    const [product, setProduct] = useState([]);
-  
-    useEffect(() => {
-      const db = getFirestore();
-      const taylorProducts = collection(db, "productos");
-      getDocs(taylorProducts).then((querySnapshot) => {
-        const product = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setProduct(product);
-      });
-    }, []);
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import Loading from '../components/Loading'
 
-const prodFilter = product.filter((prod)=> prod.category === categoryid)
- 
+const ItemListContainer = () => {
+
+  const { categoryid } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+      setLoading(true);
+
+      /* Conection a la base de dato */
+
+      const db = getFirestore();
+
+      const itemsCollection = categoryid ? query(collection(db, "Productos"), where("category", "==", categoryid)) : collection(db, "Productos");
+  
+      getDocs(itemsCollection)
+          .then((snapshot) => {
+              setProduct(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+          })
+          
+          .catch((error) => console.log(error))
+          .finally(() => setLoading(false));
+  }, [categoryid]);
+  
   return (
-    <>
-    <div>
-    {categoryid ? <ItemList product={prodFilter}/> : <ItemList product={product}/>}
-    </div>
-    </>
-  )
+      <>
+          {/* Logica para utilizar el componente del Loading(snipper) o itemList */}
+          {loading ? <Loading /> : <ItemList product={product} />}
+      </>
+  );
 }
 
-export default ItemListContainer
+export default ItemListContainer;
+
+
+
+
+
+
+
+
+
+
+
+
+

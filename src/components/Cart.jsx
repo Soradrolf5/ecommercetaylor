@@ -1,12 +1,6 @@
 import {
-  FormControl,
-  FormLabel,
-  Input,
-  FormHelperText,
   Button,
   Container,
-  Box,
-  Textarea,
   Center,
   Heading,
   Card,
@@ -15,20 +9,31 @@ import {
   CardFooter,
   Text,
 } from "@chakra-ui/react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../contexts/ShoppingCartContext";
 import SendOrder from "./SendOrder";
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
+
+
+ /* const totalCompra = () => {
+    let total = 0;
+    cart.forEach((product) => {
+        total += product.price * product.quantity;
+    });
+    };
+
+    const eliminarCarrito = (id) => {
+      const producto = cart.find((product) => product.id === id);
+      cart.splice(cart.indexOf(producto), 1);
+  };*/
 
   return (
     <>
       <Center bg="#D6EAF8" h="100px" color="black">
         <Heading as="h2" size="2xl">
-          Cart
+          Carrito
         </Heading>
       </Center>
       {cart.map((item) => {
@@ -40,16 +45,17 @@ const Cart = () => {
               </CardHeader>
               <CardBody>
                 <Text as="b">Quantity: {item.quantity}</Text>
-                <Text>Price: U$D {item.price}</Text>
+                <Text>Price: {item.price}</Text>
               </CardBody>
               <CardFooter>
                 <Button
                   colorScheme="red"
-                  onClick={() => console.log("Eliminando")}
+                  //onClick={eliminarCarrito()}
                 >
-                  Delete from cart
+                  Eliminar
                 </Button>
               </CardFooter>
+             
             </Card>
           </Container>
         );

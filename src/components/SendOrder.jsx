@@ -1,7 +1,6 @@
 import {
     Container,
     Heading,
-    Stack,
     Input,
     Button,
     Text,
@@ -9,6 +8,12 @@ import {
     FormControl,
     FormLabel,
   } from "@chakra-ui/react";
+  import {
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+  } from '@chakra-ui/react'
   import { collection, getFirestore, addDoc } from "firebase/firestore";
   import { useState } from "react";
   
@@ -22,7 +27,7 @@ import {
       if (name === "" || email === "") {
         alert("No pueden existir campos vacios");
       } else {
-        addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+        addDoc(ordersCollection, order).then(({ id }) => setOrderId(id) );
       }
       setEmail(" ");
     };
