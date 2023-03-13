@@ -8,7 +8,7 @@ const Item = ({id, name, price, category, img}) => {
         <Card maxW='sm'>
     <CardBody>
       <Stack mt='6' spacing='3'>
-        <img src={`./src/assets/${img}.jpg`} alt="..." />
+      <img className="card__img" src={img} alt="..." />
         <Heading size='md'>{name}</Heading>
         <Text color='teal' fontSize='2xl'>
           {price}

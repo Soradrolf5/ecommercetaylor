@@ -23,7 +23,7 @@ const ItemDetail = ({product}) => {
   </CardBody>
   <Divider />
   <CardFooter>
-    <ItemCount stock={product.stock} id={product.id} precio={product.price} name={product.name}/>
+    <ItemCount stock={product.stock} id={product.id} price={product.price} name={product.name} img={product.img}/>
   </CardFooter>
 </Card>
 </div>

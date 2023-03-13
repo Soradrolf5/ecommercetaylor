@@ -16,7 +16,14 @@ import SendOrder from "./SendOrder";
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
 
+  const totalCompra = () => {
+    return cart.reduce((acc, prod)=> acc += prod.price * prod.quantity,0)
+    };
 
+    const eliminarCarrito = (id) => {
+     setCart(cart.filter((item)=> item.id !== id))
+     cart.splice(cart.indexOf(producto), 1);
+  };
  /* const totalCompra = () => {
     let total = 0;
     cart.forEach((product) => {
@@ -45,12 +52,12 @@ const Cart = () => {
               </CardHeader>
               <CardBody>
                 <Text as="b">Quantity: {item.quantity}</Text>
-                <Text>Price: {item.price}</Text>
+                <Text>Price: {item.price * item.quantity}</Text>
               </CardBody>
               <CardFooter>
                 <Button
                   colorScheme="red"
-                  //onClick={eliminarCarrito()}
+                  onClick={()=>eliminarCarrito(item.id)}
                 >
                   Eliminar
                 </Button>
@@ -60,6 +67,7 @@ const Cart = () => {
           </Container>
         );
       })}
+      <p>Total Compra: {totalCompra()}</p>
       <SendOrder />
     </>
   );

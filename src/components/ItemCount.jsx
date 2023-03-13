@@ -3,7 +3,7 @@ import {Text, ButtonGroup, IconButton, Tooltip, Center, Button} from "@chakra-ui
 import React from 'react'
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import {CartContext} from '../contexts/ShoppingCartContext'
-const ItemCount = ({stock, id, price, name }) => {
+const ItemCount = ({stock, id, price, name, img }) => {
   const [cart, setCart] = useContext(CartContext)
     const [counter, setCounter] = useState(1)
     const sumar =()=>{

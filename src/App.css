@@ -8,9 +8,13 @@
 .Background {
   background-image: url(../src/assets/fondo.jpg);
   background-size: auto;
-    padding: 150px 30px;
+  /*position: fixed;*/
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  bottom: 0;
 }
-
 nav {
         margin: 0px 20px;
         padding: 10px 30px ;
@@ -24,13 +28,24 @@ nav {
 div h1 {
   margin: 15px 20px;
   background-color: white;
-        font-size: 50px;
-        text-align: center;
-        color: coral;
-       
+  font-size: 50px;
+  text-align: center;
+  color: coral;
 }
 
 .proDetalle{
   margin: 0px 20px;
   padding: 10px 30px ;
+}
+.card__container {
+  display: inline-flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.chakra-card {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  text-align: center;
 }
