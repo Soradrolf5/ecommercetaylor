@@ -12,6 +12,7 @@ import {
 import { useContext } from "react";
 import { CartContext } from "../contexts/ShoppingCartContext";
 import SendOrder from "./SendOrder";
+import NoOrder from "./NoOrder"
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -22,19 +23,9 @@ const Cart = () => {
 
     const eliminarCarrito = (id) => {
      setCart(cart.filter((item)=> item.id !== id))
-     cart.splice(cart.indexOf(producto), 1);
   };
- /* const totalCompra = () => {
-    let total = 0;
-    cart.forEach((product) => {
-        total += product.price * product.quantity;
-    });
-    };
-
-    const eliminarCarrito = (id) => {
-      const producto = cart.find((product) => product.id === id);
-      cart.splice(cart.indexOf(producto), 1);
-  };*/
+ 
+  
 
   return (
     <>
@@ -67,8 +58,8 @@ const Cart = () => {
           </Container>
         );
       })}
-      <p>Total Compra: {totalCompra()}</p>
-      <SendOrder />
+      <p className ="totalCompra">Total Compra: {totalCompra()}</p>
+      <div>{(cart.length > 0) ? <SendOrder /> : <NoOrder />}</div>
     </>
   );
 };

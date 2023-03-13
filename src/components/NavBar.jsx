@@ -6,18 +6,12 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Portal,
-} from '@chakra-ui/react'
-import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
 } from '@chakra-ui/react'
+
 function NavBar() {
   return (
     <nav>

@@ -8,7 +8,7 @@
 .Background {
   background-image: url(../src/assets/fondo.jpg);
   background-size: auto;
-  /*position: fixed;*/
+  position:static;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -25,17 +25,25 @@ nav {
 }
 
 
-div h1 {
-  margin: 15px 20px;
+.greeting {
   background-color: white;
   font-size: 50px;
   text-align: center;
   color: coral;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30%;
+  width: 100%;
 }
 
 .proDetalle{
   margin: 0px 20px;
   padding: 10px 30px ;
+  display: inline-flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .card__container {
   display: inline-flex;
@@ -49,3 +57,37 @@ div h1 {
   margin-left: 25px;
   text-align: center;
 }
+
+.totalCompra {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bolder;
+}
+.noProductos {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+
+.form {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+

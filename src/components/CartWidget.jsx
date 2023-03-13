@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, ButtonGroup, Stack } from '@chakra-ui/react'
 import { useContext} from 'react'
 import { CartContext } from '../contexts/ShoppingCartContext'
 

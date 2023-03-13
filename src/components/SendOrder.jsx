@@ -8,12 +8,6 @@ import {
     FormControl,
     FormLabel,
   } from "@chakra-ui/react";
-  import {
-    Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription,
-  } from '@chakra-ui/react'
   import { collection, getFirestore, addDoc } from "firebase/firestore";
   import { useState } from "react";
   
@@ -41,7 +35,7 @@ import {
     };
   
     return (
-      <div>
+      <div className="form">
         <Center>
           <Heading>Sending orders</Heading>
         </Center>
@@ -49,11 +43,11 @@ import {
         <Container>
           <FormControl>
             <form onSubmit={handleSubmit}>
-              <FormLabel>NAME</FormLabel>
+              <FormLabel className="formLabel">NAME</FormLabel>
               <Input size="lg" onChange={(e) => setName(e.target.value)} />
-              <FormLabel>EMAIL</FormLabel>
+              <FormLabel className="formLabel">EMAIL</FormLabel>
               <Input size="lg" onChange={(e) => setEmail(e.target.value)} />
-              <Button colorScheme="blue" type="submit" m={5}>
+              <Button colorScheme="teal" type="submit" m={5}>
                 Send Infomation
               </Button>
             </form>
